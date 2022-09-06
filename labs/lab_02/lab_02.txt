@@ -1,0 +1,11 @@
+Very simple lab.
+
+The starter gives you an array of numbers, as strings.
+
+for each number, convert that number into a floating point value.
+
+then, convert each floating point value into an integer.
+
+then, convert each integer into a character.
+
+then, print the resulting message.
