@@ -1,0 +1,5 @@
+Homework 1 is very simple.
+
+Create a program that contains a function; that function should accept a parameter which is a pointer to an integer. That function should simply print the value pointed to by that pointer.
+
+
