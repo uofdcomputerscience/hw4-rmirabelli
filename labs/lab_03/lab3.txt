@@ -1,0 +1,9 @@
+Lab three is a request to write an EXCELLENT encryption system, using the advanced "rot13" technique.
+
+Your program should read in any text file specified on the command line, and then either encode or decode the file in question.
+
+I've included a sample file for your edification.
+
+You might invoke this to encode as `./a.out encode filename.txt`.
+
+You might invoke this to decode as `./a.out decode filename.txt`.

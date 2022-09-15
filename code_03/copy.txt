@@ -1,0 +1,7 @@
+This is a file containing some text we can read
+
+and a number:
+
+4032
+
+But that number is a string, of course.

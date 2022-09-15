@@ -1,0 +1,5 @@
+Another easy homework.
+
+Write a very simple program that takes two numbers from the command line, and then prints the sum of those two numbers.
+
+For example, I might invoke this program as `./a.out 2 40` and expect to get a result of 42.
