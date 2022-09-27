@@ -1,0 +1,5 @@
+Take the class solution for lab3 and do the following:
+
+fix encoding bug
+
+Rewrite encoding to remove near-duplicated code (as explained in lecture)
