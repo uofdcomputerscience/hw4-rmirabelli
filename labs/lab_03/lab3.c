@@ -85,7 +85,7 @@ char *code(char *inBuf) {
 	char *readPtr = inBuf;
 	char *writePtr = outBuf;
 	while (*readPtr) {
-		char c = *readPtr; 
+		unsigned char c = *readPtr; 
 		// if lowercase, encode
 		if (c >= 'a' && c <= 'z') {
 			c += 13;
@@ -98,7 +98,7 @@ char *code(char *inBuf) {
 		else if (c >= 'A' && c <= 'Z') {
 			c += 13;
 			if (c > 'Z') {
-				c -= 26;
+				c -= 27;
 			}
 			*writePtr = c;
 		}
