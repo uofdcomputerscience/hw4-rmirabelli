@@ -1,0 +1,3 @@
+Today in class we built a recursive descent parser. For testing this parser, please create a routine in main_program that crafts a valid list of at least 7 tokens, and then parses it.
+
+Use the `make submission` part of your makefile to turn in a zip containing the contents of your homeowrk.
