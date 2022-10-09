@@ -1,0 +1,14 @@
+On structures day, we learned that we can have a pointer to a structure.
+
+A structure can even contain a pointer to the same type as itself, for example:
+
+struct t_foo {
+	int data;
+	struct t_foo *next;
+};
+
+This kind of structure is known as a _linked list_, where each element points to an element of the same kind. We can then go from item to item in the list by using the "next" pointer.
+
+For lab 4, implement a linked list as shown above. Dynamically allocate (that is to say, use malloc) a list of 100 items, each pointing to the next. Traverse that list in a for loop, printing some part of each element.
+
+Feel free to ask if you have any questions. This is due on 10/18/2022.
