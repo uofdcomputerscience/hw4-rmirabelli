@@ -1,0 +1,6 @@
+We're going to play with the linked list from lab 4 for this assignment.
+
+Reverse the list: Make the list move the head to the end, and point backwards. Do not make a copy of anything, this can be done strictly with the data that's already allocated. Hint: recursion.
+
+Find the midpoint: Do not count the nodes. DO NOT COUNT THE NODES. In a single pass through the list, find the midpoint. Hint: multiple pointers.
+
