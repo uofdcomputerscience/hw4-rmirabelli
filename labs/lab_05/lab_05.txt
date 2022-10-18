@@ -4,3 +4,4 @@ Reverse the list: Make the list move the head to the end, and point backwards. D
 
 Find the midpoint: Do not count the nodes. DO NOT COUNT THE NODES. In a single pass through the list, find the midpoint. Hint: multiple pointers.
 
+Due next Tuesday
