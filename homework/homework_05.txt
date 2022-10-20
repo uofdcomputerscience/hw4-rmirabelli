@@ -1,0 +1,11 @@
+Create a makefile for the lexer built in class, that does all the things:
+
+- creates a c file from the .l file
+- compiles that c file
+- runs a test
+- cleanup
+- build for submission
+
+I should be able to type "make clean" then "make test" and see the output.
+
+You can see the steps required by pausing the video as I built the program.
