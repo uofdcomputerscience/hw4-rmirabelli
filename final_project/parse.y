@@ -5,6 +5,7 @@
 #include "expr.h"
 #include "scan.h"
 #include "statement.h"
+#include "util.h"
 
 int yylex();
 void yyerror(const char *s);
@@ -24,10 +25,15 @@ Statement *parser_result = NULL;
 %token TOKEN_LPAREN
 %token TOKEN_RPAREN
 %token TOKEN_PRINT
+%token TOKEN_STRING
 %%
 
-program: statement                  { parser_result = $1; }
+program: statements                  { parser_result = $1; }
 	   ;
+
+statements: statement				{ $$ = $1; append_statement($1); }
+		  | statements statement	{ $$ = $2; append_statement($2); }
+			;
 
 statement: expr TOKEN_SEMI    		{ $$ = createStatement(ESK_EXPR, NULL, NULL, $1, NULL, NULL, NULL, NULL); } 
 		 | TOKEN_PRINT TOKEN_LPAREN expr TOKEN_RPAREN TOKEN_SEMI { $$ = createPrintStatement( $3 ); }
@@ -35,6 +41,7 @@ statement: expr TOKEN_SEMI    		{ $$ = createStatement(ESK_EXPR, NULL, NULL, $1,
 
 expr: expr TOKEN_PLUS term			{ $$ = createExpression(EXPR_ADD, $1, $3, NULL, NULL); }
 	| expr TOKEN_MINUS term			{ $$ = createExpression(EXPR_MINUS, $1, $3, NULL, NULL); }
+	| TOKEN_STRING					{ $$ = createLiteral(scanned_text); }
 	| term							{ $$ = $1; }
 	;
 

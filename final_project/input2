@@ -1,0 +1,4 @@
+print("hello world");
+print( 3 + 2 * 5);
+print("and that's about it");
+

@@ -60,11 +60,24 @@ int evaluateExpression(Expression *expression) {
 	return 0;
 }
 
+void printExpressionFormatSpecifier(Expression *expression) {
+	if (expression == NULL) return;
+
+	switch(expression->kind) {
+		case EXPR_LITERAL:
+			printf("%%s");
+			break;
+		default:
+			printf("%%d");
+			break;
+	}
+}
+
 void printExpression(Expression *expression) {
 
 	if (expression == NULL) return;
 
-	printf("(");
+	//printf("(");
 
 
 	printExpression(expression->left);
@@ -92,5 +105,5 @@ void printExpression(Expression *expression) {
 
 	printExpression(expression->right);
 
-	printf(")");
+	//printf(")");
 }

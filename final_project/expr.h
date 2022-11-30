@@ -25,5 +25,5 @@ extern int evaluateExpression(Expression *expreesion);
 extern void printExpression(Expression *expression);
 extern Expression *createName(const char *name);
 extern Expression *createLiteral(const char *literal);
-
+extern void printExpressionFormatSpecifier(Expression *expression);
 #endif // __EXPR_H

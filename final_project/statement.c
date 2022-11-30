@@ -30,7 +30,21 @@ void printStatement(Statement *statement) {
 		case ESK_PRINT:
 			printf("print(");
 			printExpression(statement->expression);
-			printf(")");
+			printf("\n)");
+			break;
+		default:
+			printExpression(statement->expression);
+	}
+}
+
+void printCodeForStatement(Statement *statement) {
+	switch(statement->kind) {
+		case ESK_PRINT:
+			printf("printf(\"");
+			printExpressionFormatSpecifier(statement->expression);
+			printf("\\n\", ");
+			printExpression(statement->expression);
+			printf(");\n");
 			break;
 		default:
 			printExpression(statement->expression);

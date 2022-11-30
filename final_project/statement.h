@@ -29,5 +29,6 @@ extern Statement *createStatement(EStatementKind kind, struct t_decl *declaratio
 extern Statement *createPrintStatement(Expression *expression);
 
 extern void printStatement(Statement *statement);
+extern void printCodeForStatement(Statement *statement);
 
 #endif // __STATEMENT_H
