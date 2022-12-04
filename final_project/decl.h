@@ -15,7 +15,7 @@ typedef struct t_decl {
 
 } Declaration;
 
-extern Declaration *createDeclaration(const char *name, Type *type, Expression *value, struct t_statement *code);
+//extern Declaration *createDeclaration(const char *name, Type *type, Expression *value, struct t_statement *code);
 
 
 #endif // __DECL_H

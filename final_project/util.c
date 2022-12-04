@@ -42,3 +42,38 @@ void append_statement(Statement *stmt) {
 Statement *get_statements() {
 	return head;
 }
+
+
+void reset_statements() {
+	head = NULL;
+}
+
+void remove_statement(Statement *stmt) {
+	if (head == NULL || stmt == NULL) return;
+
+	Statement *cur = head;
+	while (cur) {
+		if (cur->next == stmt) {
+			cur->next = cur->next->next;
+			return;
+		}
+		cur = cur->next;
+	}
+}
+
+void remove_statements(Statement *stmt) {
+	if (head == NULL || stmt == NULL) return;
+
+	if (head == stmt) {
+		head = NULL;
+		return;
+	}
+	Statement *cur = head;
+	while (cur) {
+		if (cur->next == stmt) {
+			cur->next = NULL;
+		}
+		cur = cur->next;
+	}
+}
+

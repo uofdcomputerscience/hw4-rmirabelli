@@ -20,6 +20,14 @@ Statement *createStatement(EStatementKind kind, Declaration *declaration, Expres
 
 }
 
+Statement *createDeclaration(Expression *expression) {
+	return createStatement(ESK_DECL, NULL, NULL, expression, NULL, NULL, NULL, NULL);
+}
+
+Statement *createAssignment(Expression *lvalue, Expression *rvalue) {
+	return createStatement(ESK_ASSIGN, NULL, NULL, lvalue, rvalue, NULL, NULL, NULL);
+}
+
 Statement *createPrintStatement(Expression *expression) {
 	return createStatement(ESK_PRINT, NULL, NULL, expression, NULL, NULL, NULL, NULL);
 }
@@ -45,6 +53,17 @@ void printCodeForStatement(Statement *statement) {
 			printf("\\n\", ");
 			printExpression(statement->expression);
 			printf(");\n");
+			break;
+		case ESK_DECL:
+			printf("int ");
+			printExpression(statement->expression);
+			printf(" = 0;\n");
+			break;
+		case ESK_ASSIGN:
+			printExpression(statement->expression);
+			printf(" = ");
+			printExpression(statement->next_expression);
+			printf(";\n");
 			break;
 		default:
 			printExpression(statement->expression);

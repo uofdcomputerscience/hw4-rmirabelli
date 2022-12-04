@@ -26,6 +26,10 @@ Statement *parser_result = NULL;
 %token TOKEN_RPAREN
 %token TOKEN_PRINT
 %token TOKEN_STRING
+%token TOKEN_VAR
+%token TOKEN_VARIABLE
+%token TOKEN_LITERAL
+%token TOKEN_ASSIGN
 %%
 
 program: statements                  { parser_result = $1; }
@@ -37,11 +41,15 @@ statements: statement				{ $$ = $1; append_statement($1); }
 
 statement: expr TOKEN_SEMI    		{ $$ = createStatement(ESK_EXPR, NULL, NULL, $1, NULL, NULL, NULL, NULL); } 
 		 | TOKEN_PRINT TOKEN_LPAREN expr TOKEN_RPAREN TOKEN_SEMI { $$ = createPrintStatement( $3 ); }
+		| TOKEN_VAR expr TOKEN_SEMI { $$ = createDeclaration($2); }
+		| expr TOKEN_ASSIGN expr TOKEN_SEMI { $$ = createAssignment($1, $3);  }
 		 ;
 
 expr: expr TOKEN_PLUS term			{ $$ = createExpression(EXPR_ADD, $1, $3, NULL, NULL); }
 	| expr TOKEN_MINUS term			{ $$ = createExpression(EXPR_MINUS, $1, $3, NULL, NULL); }
 	| TOKEN_STRING					{ $$ = createLiteral(scanned_text); }
+	| TOKEN_LITERAL					{ $$ = createLiteral(scanned_text); }
+	| TOKEN_VARIABLE				{ $$ = createVariable(scanned_text); }
 	| term							{ $$ = $1; }
 	;
 

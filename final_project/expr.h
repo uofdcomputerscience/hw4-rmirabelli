@@ -8,6 +8,7 @@ typedef enum e_expr {
 	EXPR_NAME,
 	EXPR_VALUE,
 	EXPR_LITERAL,
+	EXPR_VARIABLE,
 } ExpressionType;
 
 typedef struct s_expr {
@@ -25,5 +26,6 @@ extern int evaluateExpression(Expression *expreesion);
 extern void printExpression(Expression *expression);
 extern Expression *createName(const char *name);
 extern Expression *createLiteral(const char *literal);
+extern Expression *createVariable(const char *variable);
 extern void printExpressionFormatSpecifier(Expression *expression);
 #endif // __EXPR_H

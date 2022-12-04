@@ -35,6 +35,11 @@ Expression *createLiteral(const char *literal) {
 	return createExpression(EXPR_LITERAL, NULL, NULL, NULL, literal);
 }
 
+Expression *createVariable(const char *variable) {
+	return createExpression(EXPR_VARIABLE, NULL, NULL, NULL, variable);
+}
+
+
 int evaluateExpression(Expression *expression) {
 
 	if (expression == NULL) return 0;
@@ -54,6 +59,8 @@ int evaluateExpression(Expression *expression) {
 		case EXPR_NAME:
 			return 0;
 		case EXPR_LITERAL:
+			return 0;
+		case EXPR_VARIABLE:
 			return 0;
 	}
 
@@ -99,6 +106,9 @@ void printExpression(Expression *expression) {
 			printf("%s", expression->name);
 			break;
 		case EXPR_LITERAL:
+			printf("%s", expression->literal);
+			break;
+		case EXPR_VARIABLE:
 			printf("%s", expression->literal);
 			break;
 	}

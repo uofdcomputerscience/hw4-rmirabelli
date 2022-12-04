@@ -7,10 +7,10 @@ parse.c: parse.y
 scan.c: scan.l
 	flex --header-file=scan.h --outfile=scan.c scan.l
 
-test: compiler
+test: all 
 	./compiler < input
 
-test2: compiler
+test2: all
 	./compiler < input2
 
 test3: all
