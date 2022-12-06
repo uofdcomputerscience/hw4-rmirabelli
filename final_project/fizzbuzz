@@ -1,0 +1,22 @@
+var a;
+a = 1;
+whilst (a < 100) {
+	perchance (a % 15 is equal to 0) {
+		print("fizzbuzz");
+	} else {
+		var b;
+		b = 0;
+		if (a % 3 == 0) {
+			print("fizz");
+			b = 1;
+		}
+		if (a % 5 == 0) {
+			print("buzz");
+			b = 1;
+		}
+		if (b == 0) {
+			print(a);
+		}
+	}
+	a = a + 1;
+}

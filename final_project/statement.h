@@ -9,6 +9,7 @@ typedef enum e_statementkind {
 	ESK_EXPR,
 	ESK_IFELSE,
 	ESK_FOR,
+	ESK_WHILE,
 	ESK_PRINT,
 	ESK_RETURN,
 	ESK_BLOCK,
@@ -31,6 +32,10 @@ extern Statement *createStatement(EStatementKind kind, struct t_decl *declaratio
 extern Statement *createPrintStatement(Expression *expression);
 extern Statement *createDeclaration(Expression *expression);
 extern Statement *createAssignment(Expression *lvalue, Expression *rvalue);
+extern Statement *createBlock(Statement *statements);
+extern Statement *createIfStatement(Expression *predicate, Statement *body);
+extern Statement *createIfElseStatement(Expression *predicate, Statement *consequent, Statement *alternate);
+extern Statement *createWhileStatement(Expression *predicate, Statement *body);
 
 extern void printStatement(Statement *statement);
 extern void printCodeForStatement(Statement *statement);

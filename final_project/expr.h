@@ -5,10 +5,14 @@ typedef enum e_expr {
 	EXPR_ADD,
 	EXPR_MINUS,
 	EXPR_MULT,
+	EXPR_MODULO,
 	EXPR_NAME,
 	EXPR_VALUE,
 	EXPR_LITERAL,
 	EXPR_VARIABLE,
+	EXPR_LT,
+	EXPR_GT,
+	EXPR_ET,
 } ExpressionType;
 
 typedef struct s_expr {

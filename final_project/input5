@@ -1,0 +1,10 @@
+var a;
+a = 10;
+while (a < 100) {
+	print(a);
+}
+if (a < 20) {
+	print("less!");
+} else {
+	print("more");
+}

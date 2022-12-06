@@ -54,6 +54,8 @@ int evaluateExpression(Expression *expression) {
 			return left - right;
 		case EXPR_MULT:
 			return left * right;
+		case EXPR_MODULO:
+			return left % right;
 		case EXPR_VALUE:
 			return expression->value;
 		case EXPR_NAME:
@@ -62,6 +64,12 @@ int evaluateExpression(Expression *expression) {
 			return 0;
 		case EXPR_VARIABLE:
 			return 0;
+		case EXPR_ET:
+			return left == right;
+		case EXPR_LT:
+			return left < right;
+		case EXPR_GT:
+			return left > right;
 	}
 
 	return 0;
@@ -99,6 +107,9 @@ void printExpression(Expression *expression) {
 		case EXPR_MULT:
 			printf("*");
 			break;
+		case EXPR_MODULO:
+			printf("%%");
+			break;
 		case EXPR_VALUE:
 			printf("%d", expression->value);
 			break;
@@ -110,6 +121,15 @@ void printExpression(Expression *expression) {
 			break;
 		case EXPR_VARIABLE:
 			printf("%s", expression->literal);
+			break;
+		case EXPR_LT:
+			printf("<");
+			break;
+		case EXPR_GT:
+			printf(">");
+			break;
+		case EXPR_ET:
+			printf("==");
 			break;
 	}
 
